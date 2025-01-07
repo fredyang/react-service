@@ -1,11 +1,11 @@
 // Uncomment this line to use CSS modules
 // import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
+import Counter from './couter';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="react-service" />
+      <Counter />
     </div>
   );
 }

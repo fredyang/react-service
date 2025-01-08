@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from 'react';
-import { Children } from './provideService';
 
 export interface CounterService {
   count: number;
@@ -13,13 +12,13 @@ export const useCounterService = () => {
   return useContext(CounterServiceContext);
 };
 
-export const CounterServiceProvider = ({ children }: Children) => {
+export const CounterServiceProvider = ({ value, children }: { value?: CounterService, children: React.ReactElement }) => {
   const [count, setCount] = useState(0);
 
   const increment = () => setCount((prev) => prev + 1);
   const decrement = () => setCount((prev) => prev - 1);
 
-  const service = {
+  const service = value || {
     count,
     increment,
     decrement,

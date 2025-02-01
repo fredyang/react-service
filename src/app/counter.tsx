@@ -1,7 +1,7 @@
 // switch between the two imports to see the difference between the two implementations 
 // import { CounterServiceProvider, useCounterService } from './counterService';
 import { useState } from 'react';
-import { CounterServiceProvider, useCounterService } from './counterService-simplified';
+import { CounterService, useCounterService } from './counterService-simplified';
 
 function CounterControls() {
   const countService = useCounterService();
@@ -25,13 +25,13 @@ function CounterDisplay() {
 
 export function Counter() {
   return (
-    <CounterServiceProvider>
+    <CounterService>
       <div>
         <h2>Counter</h2>
         <CounterDisplay />
         <CounterControls />
       </div>
-    </CounterServiceProvider>
+    </CounterService>
   );
 }
 
@@ -47,12 +47,12 @@ export function Counter2() {
     count,
   };
   return (
-    <CounterServiceProvider value={service}>
+    <CounterService value={service}>
       <div>
         <h2>Counter 2</h2>
         <CounterDisplay />
         <CounterControls />
       </div>
-    </CounterServiceProvider>
+    </CounterService>
   );
 }

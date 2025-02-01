@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { provideService } from './provideService';
 
-export const { ServiceProvider: CounterServiceProvider, useService: useCounterService } = provideService(() => {
+const service = provideService(() => {
   const [count, setCount] = useState(0);
   return {
     increment() {
@@ -13,3 +13,6 @@ export const { ServiceProvider: CounterServiceProvider, useService: useCounterSe
     count,
   };
 });
+
+export const CounterService = service.Service;
+export const useCounterService = service.useService;
